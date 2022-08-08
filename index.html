@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marvel Tomz</title>
+    <link rel="stylesheet" type="text/css" href="./style.css">
+    <link rel="stylesheet" type="text/css" href="./fontawesome-free-6.1.2-web/css/all.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Fraunces:opsz,wght@9..144,300&family=Mochiy+Pop+P+One&display=swap" rel="stylesheet">
+</head>
+<body>
+
+
+    <header class="nav-area large-screens">
+        <div class="menu">
+            <h2 class="logo"><a>Marvel Tomz</a></h2>
+            <nav>
+                <ul class="right-nav">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Movies</a></li>
+                    <li><a href="#">Series</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+
+    <header class="nav-area small-screens">
+        <div class="menu">
+            <h2 class="logo"><a>Marvel Tomz</a></h2>
+            <div class="icon">
+                <i class="fas fa-bars"></i>
+            </div>
+            <nav>
+                <ul class="top-nav">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Movies</a></li>
+                    <li><a href="#">Series</a></li>
+                    <li><a href="#">About</a></li>
+                    <li class="extra"><a href="#">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+
+    <div class="banner"></div>
+
+
+    <div class="main-text">
+        <h2>Marvel Latest News</h2>
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Recusandae adipisci eligendi asperiores unde temporibus vitae, distinctio modi veniam fuga fugit doloribus. Commodi quibusdam, nemo atque voluptatibus reiciendis iure rem et vero doloremque beatae obcaecati similique praesentium ipsum molestiae iusto eos ab veritatis ut in aliquam recusandae quaerat laboriosam possimus molestias. Vitae temporibus ea possimus, excepturi rerum deleniti et provident iste ab. Maiores, pariatur id magnam sunt nihil quis dolorum placeat atque in. Voluptates quae similique, incidunt vero modi aspernatur omnis sequi ratione obcaecati commodi est accusamus mollitia! Rerum quo voluptate necessitatibus deleniti provident, sunt facilis delectus distinctio, sint asperiores at.</p>
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eveniet, nisi! Maxime ut eum, quasi quae iste aliquam, ipsum facilis harum ab doloremque voluptate voluptatum labore! Nulla, odit neque unde quas temporibus, veritatis doloribus possimus adipisci nam nesciunt id perferendis ex consequuntur, ullam consectetur! Architecto, asperiores non. Alias sint omnis eligendi suscipit quod ea aspernatur. Officiis animi aspernatur, quas consectetur, enim commodi et sint, delectus dolorem fugiat voluptatum inventore dolores temporibus?</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam nisi nostrum nihil hic vel assumenda beatae! Temporibus quasi dicta minima laboriosam nesciunt nostrum et saepe sit, culpa odio nam assumenda vero, vitae optio illum modi, aspernatur numquam sint. Eum delectus deleniti ducimus eos ipsum aliquid, voluptas optio accusantium minima vero.</p>
+        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eaque quia, vel facere eos perferendis sint, nihil debitis explicabo deserunt molestiae laudantium ea reiciendis obcaecati aperiam voluptate non quasi quam optio nesciunt cupiditate hic blanditiis! Eos repellat expedita repudiandae incidunt, quisquam voluptatem quas, dolor nostrum maxime vitae fuga amet, laudantium accusantium excepturi! A nesciunt necessitatibus impedit qui vero! Beatae, blanditiis dolore.</p>
+        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aspernatur maxime, nesciunt eos cupiditate quibusdam a labore, at officiis sed neque facere voluptatibus tenetur suscipit nam, possimus doloremque quo alias libero sunt perferendis quas? Delectus qui animi iste quisquam sint beatae nam error aliquid. Perferendis perspiciatis eius aut nam quia illum necessitatibus laboriosam ab doloremque placeat qui ipsam voluptatum quae, temporibus veritatis ea veniam maiores nulla aperiam! Dolorem harum reiciendis velit veritatis modi, quasi, corrupti possimus id iure officia illum odit!</p>
+    </div>
+
+
+    <script>
+
+
+        $(function(){
+
+
+           var scroll = $(document).scrollTop();
+           var navHeight = $('.nav-area').outerHeight();
+
+            
+           $(window).scroll(function(){
+               var scrolled = $(document).scrollTop();
+
+
+               if(scrolled > navHeight){
+                  $('.nav-area').addClass('animate');
+               }else{
+                  $('.nav-area').removeClass('animate');
+               }
+
+
+               if(scrolled > scroll){
+                  $('.nav-area').removeClass('sticky');
+               }else{
+                  $('.nav-area').addClass('sticky');
+               }
+
+
+               scroll = $(document).scrollTop();
+           });
+
+
+        });
+
+
+        $(function(){
+            var scroll = $(document).scrollTop();
+           var navHeight = $('.top-nav').outerHeight();
+
+            
+           $(window).scroll(function(){
+               var scrolled = $(document).scrollTop();
+
+
+               if(scrolled > navHeight){
+                 $('.top-nav').removeClass('show');
+               }
+
+
+               if(scrolled > scroll){
+                 $('.top-nav').removeClass('show');
+               }
+
+
+               scroll = $(document).scrollTop();
+            });
+        });
+
+        const $menu = $('.top-nav');
+        $(document).mouseup(e => {
+         if (!$menu.is(e.target) // if the target of the click isn't the container...
+         && $menu.has(e.target).length === 0) // ... nor a descendant of the container
+           {
+             $('.top-nav').removeClass("show");
+
+
+               $('.icon').click(function(){
+                  $('.top-nav').toggleClass("show");
+               });
+           }
+        });
+
+
+    </script>
+
+    
+</body>
+</html>
