@@ -23,6 +23,7 @@
                         <ul class="dropdown-menu">
                             <li><a href="#">Phase 4</a></li>
                             <li><a href="#">Phase 5</a></li>
+                            <li><a href="#">Sony<br />Spider-<br />Man<br />Universe</a></li>
                         </ul>
                     </li>
                     <li class="dropdown2"><a>Series <i class="fas fa-caret-down first"></i></a>
@@ -51,6 +52,7 @@
                         <ul class="movies-dropdown-menu">
                             <li><a href="#">Phase 4</a></li>
                             <li><a href="#">Phase 5</a></li>
+                            <li><a href="#">Sony Spider-Man Universe</li>
                         </ul>
                     </li>
                     <li class="series-dropdown"><a>Series <i class="fas fa-caret-down first"></i></a>
@@ -171,7 +173,7 @@
         });
 
 
-        // Removing Small Screens Nav Bar On Click Outisde The Nav Bar
+        //Removing Small Screens Nav Bar On Click Outisde The Nav Bar
         const $menu = $('.top-nav');
         $(document).mouseup(e => {
          if (!$menu.is(e.target) // if the target of the click isn't the container...
@@ -192,9 +194,21 @@
                });
 
 
-               $('.icon').click(function(){
+               $('.icon i').click(function(){
                   $('.top-nav').toggleClass("show");
                });
+           }
+        });
+        
+
+        //Removing Dropdowns On Clicking Outside The Nav Area
+        const $navarea = $('.nav-area');
+        $(document).mouseup(e => {
+         if (!$navarea.is(e.target) // if the target of the click isn't the container...
+         && $navarea.has(e.target).length === 0) // ... nor a descendant of the container
+           {
+             $('.dropdown-menu').removeClass('options');
+             $('.dropdown2-menu').removeClass('options');
            }
         });
 
