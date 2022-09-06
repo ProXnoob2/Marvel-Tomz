@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Marvel Tomz</title>
     <link rel="stylesheet" type="text/css" href="./style.css">
-    <link rel="stylesheet" type="text/css" href="./fontawesome-free-6.1.2-web/css/all.css">  
+    <link rel="stylesheet" type="text/css" href="./Fontawesome/css/all.css">  
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Fraunces:opsz,wght@9..144,300&family=Mochiy+Pop+P+One&display=swap" rel="stylesheet">
 </head>
@@ -21,14 +21,14 @@
                     <li><a href="#">Home</a></li>
                     <li class="dropdown"><a>Movies <i class="fas fa-caret-down first"></i></a>
                         <ul class="dropdown-menu">
-                            <li><a href="#">Phase 4</a></li>
+                            <li><a href="./Phase-4/p4movies.html">Phase 4</a></li>
                             <li><a href="#">Phase 5</a></li>
                             <li><a href="#">Sony<br />Spider-<br />Man<br />Universe</a></li>
                         </ul>
                     </li>
                     <li class="dropdown2"><a>Series <i class="fas fa-caret-down first"></i></a>
                         <ul class="dropdown2-menu">
-                            <li><a href="#">Phase 4</a></li>
+                            <li><a href="./Phase-4/p4series.html">Phase 4</a></li>
                             <li><a href="#">Phase 5</a></li>
                         </ul>
                     </li>
@@ -50,14 +50,14 @@
                     <li><a>Home</a></li>
                     <li class="movies-dropdown"><a>Movies <i class="fas fa-caret-down first"></i></a>
                         <ul class="movies-dropdown-menu">
-                            <li><a href="#">Phase 4</a></li>
+                            <li><a href="./Phase-4/p4movies.html">Phase 4</a></li>
                             <li><a href="#">Phase 5</a></li>
                             <li><a href="#">Sony Spider-Man Universe</li>
                         </ul>
                     </li>
                     <li class="series-dropdown"><a>Series <i class="fas fa-caret-down first"></i></a>
                         <ul class="series-dropdown-menu">
-                            <li><a href="#">Phase 4</a></li>
+                            <li><a href="./Phase-4/p4series.html">Phase 4</a></li>
                             <li><a href="#">Phase 5</a></li>
                         </ul>
                     </li>
@@ -81,151 +81,7 @@
     </div>
 
 
-    <script>
-        
-
-        // Hiding And Showing Nav Bar Area On Scroll
-        $(function(){
-
-
-           var scroll = $(document).scrollTop();
-           var navHeight = $('.nav-area').outerHeight();
-
-            
-           $(window).scroll(function(){
-               var scrolled = $(document).scrollTop();
-
-
-               if(scrolled > navHeight){
-                  $('.nav-area').addClass('animate');
-               }else{
-                  $('.nav-area').removeClass('animate');
-               }
-
-
-               if(scrolled > scroll){
-                  $('.nav-area').removeClass('sticky');
-               }else{
-                  $('.nav-area').addClass('sticky');
-               }
-
-
-               scroll = $(document).scrollTop();
-           });
-
-
-        });
-
-         
-        // Removing Dropdown On Scroll
-        $(function(){
-            var scroll = $(document).scrollTop();
-           var navHeight = $('.top-nav').outerHeight();
-
-            
-           $(window).scroll(function(){
-               var scrolled = $(document).scrollTop();
-
-
-               if(scrolled > navHeight){
-                 $('.dropdown-menu').removeClass('options')
-                 $('.dropdown2-menu').removeClass('options')
-               }
-
-
-               if(scrolled > scroll){
-                 $('.dropdown-menu').removeClass('options')
-                 $('.dropdown2-menu').removeClass('options')
-               }
-
-
-               scroll = $(document).scrollTop();
-           });
-        });
-
-
-        // Removing Small Screens Nav Bar On Scroll
-        $(function(){
-            var scroll = $(document).scrollTop();
-           var navHeight = $('.top-nav').outerHeight();
-
-            
-           $(window).scroll(function(){
-               var scrolled = $(document).scrollTop();
-
-
-               if(scrolled > navHeight){
-                 $('.top-nav').removeClass('show');
-                 $('.movies-dropdown-menu').removeClass('menu');
-                 $('.series-dropdown-menu').removeClass('menu');
-               }
-
-
-               if(scrolled > scroll){
-                 $('.top-nav').removeClass('show');
-                 $('.movies-dropdown-menu').removeClass('menu');
-                 $('.series-dropdown-menu').removeClass('menu');
-               }
-
-
-               scroll = $(document).scrollTop();
-            });
-        });
-
-
-        //Removing Small Screens Nav Bar On Click Outisde The Nav Bar
-        const $menu = $('.top-nav');
-        $(document).mouseup(e => {
-         if (!$menu.is(e.target) // if the target of the click isn't the container...
-         && $menu.has(e.target).length === 0) // ... nor a descendant of the container
-           {
-             $('.top-nav').removeClass("show");
-             $('.movies-dropdown-menu').removeClass('menu');
-             $('.series-dropdown-menu').removeClass('menu');
-
-
-               $('.movies-dropdown').click(function(){
-                 $('.movies-dropdown-menu').toggleClass('menu');
-               });
-
-
-               $('.series-dropdown').click(function(){
-                 $('.series-dropdown-menu').toggleClass('menu');
-               });
-
-
-               $('.icon i').click(function(){
-                  $('.top-nav').toggleClass("show");
-               });
-           }
-        });
-        
-
-        //Removing Dropdowns On Clicking Outside The Nav Area
-        const $navarea = $('.nav-area');
-        $(document).mouseup(e => {
-         if (!$navarea.is(e.target) // if the target of the click isn't the container...
-         && $navarea.has(e.target).length === 0) // ... nor a descendant of the container
-           {
-             $('.dropdown-menu').removeClass('options');
-             $('.dropdown2-menu').removeClass('options');
-           }
-        });
-
-
-        // Opening Dropdown Menu On Clicking Movies
-        $('.dropdown').click(function(){
-            $('.dropdown-menu').toggleClass('options');
-        });
-
-
-        // Opening Dropdown Menu On Clicking Series
-        $('.dropdown2').click(function(){
-            $('.dropdown2-menu').toggleClass('options');
-        });
-
-
-    </script>
+    <script src="./script.js"></script>
 
     
 </body>
