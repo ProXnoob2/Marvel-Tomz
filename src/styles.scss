@@ -1,1 +1,28 @@
-/* You can add global styles to this file, and also import other style files */
+@import '~bootstrap/dist/css/bootstrap.css';
+@import '~bootstrap-icons/font/bootstrap-icons.css';
+@import '@angular/material/prebuilt-themes/indigo-pink.css';
+
+
+.mobile-screens {
+    @media (min-width: 769px) {
+        display: none !important;
+    }
+}
+
+.laptop-screens {
+    @media (max-width: 769px) {
+        display: none !important;
+    }
+}
+
+.maxw-400px-none-sml{
+    @media (max-width: 400px) {
+        display: none !important;
+    }
+}
+
+.minw-400px-none-sml{
+    @media (min-width: 401px) {
+        display: none !important;
+    }
+}

@@ -1,0 +1,234 @@
+<div class="d-flex flex-md-row flex-column-reverse gap-4">
+  <div class="col-md-6 d-flex justify-content-center">
+    <form (ngSubmit)="save(f.value)" #f="ngForm" class="w-100">
+      <div class="form-group mb-2">
+        <mat-form-field class="w-100">
+          <mat-label>Title</mat-label>
+
+          <input
+            required
+            #title="ngModel"
+            [(ngModel)]="movie.title"
+            name="title"
+            matInput
+            type="text"
+            id="title"
+            type="text"
+          />
+        </mat-form-field>
+
+        <div
+          class="alert alert-danger"
+          style="margin-top: -18px"
+          *ngIf="title.touched && title.invalid"
+        >
+          Title is required.
+        </div>
+      </div>
+
+      <div class="form-group mb-3">
+        <mat-form-field class="w-100">
+          <mat-label>Release Date</mat-label>
+          <input
+            required
+            id="releaseDate"
+            name="releaseDate"
+            #releaseDate="ngModel"
+            [(ngModel)]="movie.releaseDate"
+            (focus)="picker.open()"
+            [min]="minDate"
+            matInput
+            [matDatepicker]="picker"
+          />
+          <mat-hint>MM/DD/YYYY</mat-hint>
+          <mat-datepicker-toggle
+            matIconSuffix
+            [for]="picker"
+          ></mat-datepicker-toggle>
+          <mat-datepicker #picker touchUi="true"></mat-datepicker>
+        </mat-form-field>
+
+        <div
+          class="alert alert-danger"
+          style="margin-top: -18px"
+          *ngIf="releaseDate.touched && releaseDate.invalid"
+        >
+          Release Date is required.
+        </div>
+      </div>
+
+      <div class="form-group mb-2">
+        <mat-form-field class="w-100">
+          <mat-label>Phase</mat-label>
+          <mat-select
+            #phase="ngModel"
+            required
+            [(ngModel)]="movie.phase"
+            name="phase"
+            id="phase"
+          >
+            <mat-option
+              *ngFor="let phase of phases$ | async"
+              [value]="phase.number"
+            >
+              {{ phase.number }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <div
+          class="alert alert-danger"
+          style="margin-top: -18px"
+          *ngIf="phase.touched && phase.invalid"
+        >
+          Phase is required.
+        </div>
+      </div>
+
+      <div class="form-group mb-3">
+        <mat-form-field class="w-100">
+          <mat-label>Duration</mat-label>
+
+          <input
+            required
+            #duration="ngModel"
+            [(ngModel)]="movie.duration"
+            name="duration"
+            matInput
+            type="text"
+            id="duration"
+            type="text"
+          />
+          <mat-hint>HHh/MMm</mat-hint>
+        </mat-form-field>
+
+        <div
+          class="alert alert-danger"
+          style="margin-top: -18px"
+          *ngIf="duration.touched && duration.invalid"
+        >
+          Duration is required.
+        </div>
+      </div>
+
+      <div class="form-group mb-2">
+        <mat-form-field class="w-100">
+          <mat-label>Poster URL</mat-label>
+
+          <input
+            required
+            url
+            #posterUrl="ngModel"
+            [(ngModel)]="movie.posterUrl"
+            name="posterUrl"
+            matInput
+            type="text"
+            id="posterUrl"
+            type="text"
+          />
+        </mat-form-field>
+
+        <div
+          class="alert alert-danger"
+          style="margin-top: -18px"
+          *ngIf="posterUrl.touched && posterUrl.invalid"
+        >
+          <div *ngIf="posterUrl.errors?.['required']">
+            Poster URL is required.
+          </div>
+          <div *ngIf="posterUrl.errors?.['url']">Please enter a valid URL.</div>
+        </div>
+      </div>
+
+      <div class="form-group mb-2">
+        <mat-form-field class="w-100">
+          <mat-label>Age Rating</mat-label>
+
+          <input
+            required
+            #ageRating="ngModel"
+            [(ngModel)]="movie.ageRating"
+            name="ageRating"
+            matInput
+            type="text"
+            id="ageRating"
+            type="text"
+          />
+        </mat-form-field>
+
+        <div
+          class="alert alert-danger"
+          style="margin-top: -18px"
+          *ngIf="ageRating.touched && ageRating.invalid"
+        >
+          Age Rating is required.
+        </div>
+      </div>
+
+      <div class="form-group mb-2">
+        <mat-form-field class="w-100">
+          <mat-label>Part</mat-label>
+
+          <input
+            [(ngModel)]="movie.part"
+            name="part"
+            matInput
+            type="text"
+            id="part"
+            type="text"
+          />
+        </mat-form-field>
+      </div>
+
+      <div class="d-flex justify-content-sm-between">
+        <div class="d-flex gap-3">
+          <button [disabled]="!f.valid" class="btn btn-primary">Save</button>
+          <button
+            type="button"
+            routerLink="/admin/movies"
+            class="btn btn-warning"
+          >
+            Discard
+          </button>
+        </div>
+        <button
+          *ngIf="id"
+          style="margin-left: 13px"
+          type="button"
+          (click)="remove()"
+          class="btn btn-danger"
+        >
+          Delete
+        </button>
+      </div>
+    </form>
+  </div>
+
+  <div class="col-md-6 d-flex justify-content-center mb-3">
+    <div
+      [class.bg-ccc]="!movie.title && !movie.releaseDate && !movie.posterUrl"
+      class="card"
+      style="width: 22rem; height: 36rem; transition: 200ms"
+    >
+      <h5
+        *ngIf="!movie.title && !movie.releaseDate && !movie.posterUrl"
+        class="text-center mt-4"
+      >
+        Preview Text
+      </h5>
+      <div>
+        <img
+          *ngIf="movie.posterUrl"
+          [src]="movie.posterUrl"
+          class="card-img-top"
+        />
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">{{ movie.title }}</h5>
+        <p class="card-text">
+          {{ movie.releaseDate | date : "longDate" }}
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
