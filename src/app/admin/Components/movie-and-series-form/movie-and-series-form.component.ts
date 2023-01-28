@@ -11,7 +11,6 @@ import { PhasesService } from 'shared/Services/phases/phases.service';
   styleUrls: ['./movie-and-series-form.component.scss'],
 })
 export class MovieAndSeriesFormComponent {
-  minDate: number | any = new Date(2008, 0, 1);
   movie: Movie | any = {};
   id!: any;
   phases$!: any;
@@ -36,15 +35,15 @@ export class MovieAndSeriesFormComponent {
     this.phases$ = this.phasesService.getAll();
   }
 
-  save(movie: any) {
+  save(movie: Movie) {
+    movie.releaseDate = new Date(movie.releaseDate).toISOString();
     if (this.id) this.moviesService.update(this.id, movie);
     else this.moviesService.create(movie);
-
     this.router.navigate(['/admin/movies']);
   }
 
   remove() {
-    if (!confirm('Are you sure you want to delete this product?')) return;
+    if (!confirm('Are you sure you want to delete this movie?')) return;
     else {
       this.moviesService.remove(this.id);
       this.router.navigate(['/admin/movies']);

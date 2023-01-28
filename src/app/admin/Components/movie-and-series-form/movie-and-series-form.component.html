@@ -36,7 +36,6 @@
             #releaseDate="ngModel"
             [(ngModel)]="movie.releaseDate"
             (focus)="picker.open()"
-            [min]="minDate"
             matInput
             [matDatepicker]="picker"
           />
@@ -172,12 +171,21 @@
           <input
             [(ngModel)]="movie.part"
             name="part"
+            #part="ngModel"
             matInput
             type="text"
             id="part"
             type="text"
           />
         </mat-form-field>
+
+        <div
+          class="alert alert-danger"
+          style="margin-top: -18px"
+          *ngIf="part.touched && part.invalid"
+        >
+          Part is required.
+        </div>
       </div>
 
       <div class="d-flex justify-content-sm-between">

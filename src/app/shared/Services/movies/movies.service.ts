@@ -9,7 +9,9 @@ import { Movie } from 'shared/Models/movie';
 export class MoviesService {
   constructor(private db: AngularFireDatabase) {}
 
-  create(movie: any) {
+  create(movie: Movie) {
+    console.log(movie);
+
     return this.db.list('/movies').push(movie);
   }
 
@@ -28,7 +30,7 @@ export class MoviesService {
     return this.db.object('/movies/' + movieId).valueChanges();
   }
 
-  update(movieId: string | number, movie: any) {
+  update(movieId: string | number, movie: Movie) {
     return this.db.object('/movies/' + movieId).update(movie);
   }
 

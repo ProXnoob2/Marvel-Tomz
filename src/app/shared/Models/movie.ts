@@ -1,6 +1,6 @@
 export interface Movie {
   title: string;
-  releaseDate: any;
+  releaseDate: string;
   phase: string;
   duration: string;
   posterUrl: any;
