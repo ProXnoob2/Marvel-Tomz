@@ -17,11 +17,7 @@
           />
         </mat-form-field>
 
-        <div
-          class="alert alert-danger"
-          style="margin-top: -18px"
-          *ngIf="title.touched && title.invalid"
-        >
+        <div class="alert alert-danger" style="margin-top: -18px" *ngIf="title.touched && title.invalid">
           Title is required.
         </div>
       </div>
@@ -40,18 +36,11 @@
             [matDatepicker]="picker"
           />
           <mat-hint>MM/DD/YYYY</mat-hint>
-          <mat-datepicker-toggle
-            matIconSuffix
-            [for]="picker"
-          ></mat-datepicker-toggle>
+          <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
           <mat-datepicker #picker touchUi="true"></mat-datepicker>
         </mat-form-field>
 
-        <div
-          class="alert alert-danger"
-          style="margin-top: -18px"
-          *ngIf="releaseDate.touched && releaseDate.invalid"
-        >
+        <div class="alert alert-danger" style="margin-top: -18px" *ngIf="releaseDate.touched && releaseDate.invalid">
           Release Date is required.
         </div>
       </div>
@@ -59,27 +48,14 @@
       <div class="form-group mb-2">
         <mat-form-field class="w-100">
           <mat-label>Phase</mat-label>
-          <mat-select
-            #phase="ngModel"
-            required
-            [(ngModel)]="movie.phase"
-            name="phase"
-            id="phase"
-          >
-            <mat-option
-              *ngFor="let phase of phases$ | async"
-              [value]="phase.number"
-            >
+          <mat-select #phase="ngModel" required [(ngModel)]="movie.phase" name="phase" id="phase">
+            <mat-option *ngFor="let phase of phases$ | async" [value]="phase.number">
               {{ phase.number }}
             </mat-option>
           </mat-select>
         </mat-form-field>
 
-        <div
-          class="alert alert-danger"
-          style="margin-top: -18px"
-          *ngIf="phase.touched && phase.invalid"
-        >
+        <div class="alert alert-danger" style="margin-top: -18px" *ngIf="phase.touched && phase.invalid">
           Phase is required.
         </div>
       </div>
@@ -101,11 +77,7 @@
           <mat-hint>HHh MMm</mat-hint>
         </mat-form-field>
 
-        <div
-          class="alert alert-danger"
-          style="margin-top: -18px"
-          *ngIf="duration.touched && duration.invalid"
-        >
+        <div class="alert alert-danger" style="margin-top: -18px" *ngIf="duration.touched && duration.invalid">
           Duration is required.
         </div>
       </div>
@@ -127,14 +99,8 @@
           />
         </mat-form-field>
 
-        <div
-          class="alert alert-danger"
-          style="margin-top: -18px"
-          *ngIf="posterUrl.touched && posterUrl.invalid"
-        >
-          <div *ngIf="posterUrl.errors?.['required']">
-            Poster URL is required.
-          </div>
+        <div class="alert alert-danger" style="margin-top: -18px" *ngIf="posterUrl.touched && posterUrl.invalid">
+          <div *ngIf="posterUrl.errors?.['required']">Poster URL is required.</div>
           <div *ngIf="posterUrl.errors?.['url']">Please enter a valid URL.</div>
         </div>
       </div>
@@ -155,11 +121,7 @@
           />
         </mat-form-field>
 
-        <div
-          class="alert alert-danger"
-          style="margin-top: -18px"
-          *ngIf="ageRating.touched && ageRating.invalid"
-        >
+        <div class="alert alert-danger" style="margin-top: -18px" *ngIf="ageRating.touched && ageRating.invalid">
           Age Rating is required.
         </div>
       </div>
@@ -180,11 +142,7 @@
           />
         </mat-form-field>
 
-        <div
-          class="alert alert-danger"
-          style="margin-top: -18px"
-          *ngIf="part.touched && part.invalid"
-        >
+        <div class="alert alert-danger" style="margin-top: -18px" *ngIf="part.touched && part.invalid">
           Part is required.
         </div>
       </div>
@@ -192,21 +150,9 @@
       <div class="d-flex justify-content-sm-between">
         <div class="d-flex gap-3">
           <button [disabled]="!f.valid" class="btn btn-primary">Save</button>
-          <button
-            type="button"
-            routerLink="/admin/movies"
-            class="btn btn-warning"
-          >
-            Discard
-          </button>
+          <button type="button" routerLink="/admin/movies" class="btn btn-warning">Discard</button>
         </div>
-        <button
-          *ngIf="id"
-          style="margin-left: 13px"
-          type="button"
-          (click)="remove()"
-          class="btn btn-danger"
-        >
+        <button *ngIf="id" style="margin-left: 13px" type="button" (click)="remove()" class="btn btn-danger">
           Delete
         </button>
       </div>
@@ -219,23 +165,14 @@
       class="card"
       style="width: 22rem; height: 36rem; transition: 200ms"
     >
-      <h5
-        *ngIf="!movie.title && !movie.releaseDate && !movie.posterUrl"
-        class="text-center mt-4"
-      >
-        Preview Text
-      </h5>
+      <h5 *ngIf="!movie.title && !movie.releaseDate && !movie.posterUrl" class="text-center mt-4">Preview Text</h5>
       <div>
-        <img
-          *ngIf="movie.posterUrl"
-          [src]="movie.posterUrl"
-          class="card-img-top"
-        />
+        <img *ngIf="movie.posterUrl" [src]="movie.posterUrl" class="card-img-top" />
       </div>
       <div class="card-body">
         <h5 class="card-title">{{ movie.title }}</h5>
         <p class="card-text">
-          {{ movie.releaseDate | date : "longDate" }}
+          {{ movie.releaseDate | date : 'longDate' }}
         </p>
       </div>
     </div>

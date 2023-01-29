@@ -17,11 +17,7 @@ export class MoviesService {
     return this.db
       .list<Movie[] | any>('/movies')
       .snapshotChanges()
-      .pipe(
-        map((changes) =>
-          changes.map((c) => ({ key: c.payload.key, ...c.payload.val() }))
-        )
-      );
+      .pipe(map((changes) => changes.map((c) => ({ key: c.payload.key, ...c.payload.val() }))));
   }
 
   get(movieId: string | number) {

@@ -8,9 +8,8 @@ describe('HomeShowcaseImgComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ HomeShowcaseImgComponent ]
-    })
-    .compileComponents();
+      declarations: [HomeShowcaseImgComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(HomeShowcaseImgComponent);
     component = fixture.componentInstance;

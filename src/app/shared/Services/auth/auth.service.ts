@@ -12,11 +12,7 @@ import { UserService } from '../user/user.service';
 export class AuthService {
   user$!: Observable<firebase.User | null>;
 
-  constructor(
-    private afAuth: AngularFireAuth,
-    private route: ActivatedRoute,
-    private userService: UserService
-  ) {
+  constructor(private afAuth: AngularFireAuth, private route: ActivatedRoute, private userService: UserService) {
     this.user$ = afAuth.authState;
   }
 

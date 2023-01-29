@@ -38,9 +38,7 @@ export class SeriesFormComponent {
   }
 
   save(series: Series) {
-    series.startStreamingDate = new Date(
-      series.startStreamingDate
-    ).toISOString();
+    series.startStreamingDate = new Date(series.startStreamingDate).toISOString();
     series.endStreamingDate = new Date(series.endStreamingDate).toISOString();
     if (this.id) this.seriesService.update(this.id, series);
     else this.seriesService.create(series);

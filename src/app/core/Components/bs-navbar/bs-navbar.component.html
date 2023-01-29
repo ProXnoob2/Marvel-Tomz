@@ -1,77 +1,40 @@
 <nav class="navbar navbar-expand user-select-none fixed-top bg-dark">
   <div class="container text-white">
-    <a class="navbar-brand text-white maxw-400px-none-sml" routerLink="/"
-      >Marvel Tomz</a
-    >
+    <a class="navbar-brand text-white maxw-400px-none-sml" routerLink="/">Marvel Tomz</a>
     <a class="navbar-brand text-white minw-400px-none-sml" routerLink="/">MT</a>
     <ul class="navbar-nav">
       <div class="left-nav-items">
         <div class="nav-item">
-          <a
-            class="nav-item nav-link text-white"
-            style="margin-right: 10px"
-            routerLink="/about"
-            >About</a
-          >
+          <a class="nav-item nav-link text-white" style="margin-right: 10px" routerLink="/about">About</a>
         </div>
-        <li
-          class="nav-item dropdown dropdown1"
-          *ngIf="appUser; else anonymousUser"
-        >
+        <li class="nav-item dropdown dropdown1" *ngIf="appUser; else anonymousUser">
           <div class="d-flex align-items-center" style="margin-right: -4px">
-            <img
-              *ngIf="appUser.imageUrl"
-              [src]="appUser.imageUrl"
-              class="user-image"
-            />
+            <img *ngIf="appUser.imageUrl" [src]="appUser.imageUrl" class="user-image" />
           </div>
 
-          <div
-            class="d-flex align-items-center"
-            style="cursor: pointer"
-            [matMenuTriggerFor]="menu"
-          >
+          <div class="d-flex align-items-center" style="cursor: pointer" [matMenuTriggerFor]="menu">
             <a class="nav-item dropdown mobile-screens">
-              <mat-icon
-                class="nav-link triple-dots text-white"
-                mat-button
-                id="navbarToggle"
-              >
-                more_vert
-              </mat-icon>
+              <mat-icon class="nav-link triple-dots text-white" mat-button id="navbarToggle"> more_vert </mat-icon>
             </a>
 
-            <a
-              class="nav-link dropdown-toggle text-white laptop-screens"
-              id="navbarToggle"
-            >
+            <a class="nav-link dropdown-toggle text-white laptop-screens" id="navbarToggle">
               {{ appUser.name }}
             </a>
           </div>
 
           <mat-menu #menu="matMenu">
             <ng-container *ngIf="appUser.isAdmin">
-              <a class="dropdown-item" mat-menu-item routerLink="/admin/movies"
-                >Manage Movies</a
-              >
-              <a class="dropdown-item" mat-menu-item routerLink="/admin/series"
-                >Manage Series</a
-              >
+              <a class="dropdown-item" mat-menu-item routerLink="/admin/movies">Manage Movies</a>
+              <a class="dropdown-item" mat-menu-item routerLink="/admin/series">Manage Series</a>
             </ng-container>
             <mat-divider></mat-divider>
-            <a class="dropdown-item" (click)="logout()" mat-menu-item
-              ><span class="text-danger">Log Out</span></a
-            >
+            <a class="dropdown-item" (click)="logout()" mat-menu-item><span class="text-danger">Log Out</span></a>
           </mat-menu>
         </li>
 
         <ng-template #anonymousUser>
           <li class="nav-item" style="margin-right: 10px">
-            <button
-              class="nav-item text-white nav-link btn btn-primary px-3"
-              aria-current="page"
-              routerLink="/login"
-            >
+            <button class="nav-item text-white nav-link btn btn-primary px-3" aria-current="page" routerLink="/login">
               Login
             </button>
           </li>

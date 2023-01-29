@@ -38,9 +38,7 @@ export class AdminSeriesComponent implements AfterViewInit {
   applyFilter(value: string) {
     this.dataSource.data = this.series;
     this.dataSource.data = value
-      ? this.dataSource.data.filter((m) =>
-          m.title.toLowerCase().includes(value.toLowerCase())
-        )
+      ? this.dataSource.data.filter((m) => m.title.toLowerCase().includes(value.toLowerCase()))
       : this.series;
 
     if (this.dataSource.paginator) {

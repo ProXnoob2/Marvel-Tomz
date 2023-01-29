@@ -1,26 +1,26 @@
 .dropdown1 {
-    display: flex;
-    justify-content: right;
+  display: flex;
+  justify-content: right;
 }
 
 .left-nav-items {
-    display: flex;
-    flex-direction: row;
+  display: flex;
+  flex-direction: row;
 }
 
 .triple-dots {
-    display: flex !important;
-    justify-content: center !important;
-    align-items: center !important;
-    font-size: 30px !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  font-size: 30px !important;
 }
 
 .user-image {
-    height: 30px !important;
-    width: 30px !important;
-    border-radius: 50%;
+  height: 30px !important;
+  width: 30px !important;
+  border-radius: 50%;
 }
 
-.fixed-top{
-    z-index: 500;
+.fixed-top {
+  z-index: 500;
 }

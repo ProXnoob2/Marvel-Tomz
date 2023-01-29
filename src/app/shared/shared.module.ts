@@ -13,29 +13,8 @@ import { SeriesService } from './Services/series/series.service';
 import { UserService } from './Services/user/user.service';
 
 @NgModule({
-  imports: [
-    CommonModule,
-    MatModule,
-    FormsModule,
-    CustomFormsModule,
-    AngularFireDatabaseModule,
-    AngularFireAuthModule,
-  ],
-  exports: [
-    CommonModule,
-    MatModule,
-    FormsModule,
-    CustomFormsModule,
-    AngularFireDatabaseModule,
-    AngularFireAuthModule,
-  ],
-  providers: [
-    AuthService,
-    UserService,
-    AuthGuard,
-    MoviesService,
-    SeriesService,
-    PhasesService,
-  ],
+  imports: [CommonModule, MatModule, FormsModule, CustomFormsModule, AngularFireDatabaseModule, AngularFireAuthModule],
+  exports: [CommonModule, MatModule, FormsModule, CustomFormsModule, AngularFireDatabaseModule, AngularFireAuthModule],
+  providers: [AuthService, UserService, AuthGuard, MoviesService, SeriesService, PhasesService],
 })
 export class SharedModule {}

@@ -10,12 +10,7 @@ import { SeriesFormComponent } from './Components/series-form/series-form.compon
 import { AdminAuthGuard } from './Services/admin-auth-guard/admin-auth-guard.service';
 
 @NgModule({
-  declarations: [
-    AdminMoviesComponent,
-    AdminSeriesComponent,
-    MovieFormComponent,
-    SeriesFormComponent,
-  ],
+  declarations: [AdminMoviesComponent, AdminSeriesComponent, MovieFormComponent, SeriesFormComponent],
   imports: [
     SharedModule,
     RouterModule.forChild([

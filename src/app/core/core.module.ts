@@ -8,12 +8,7 @@ import { HomeShowcaseImgComponent } from './Components/home-showcase-img/home-sh
 import { HomeComponent } from './Components/home/home.component';
 
 @NgModule({
-  declarations: [
-    BsNavbarComponent,
-    HomeComponent,
-    HomeShowcaseImgComponent,
-    AboutComponent,
-  ],
+  declarations: [BsNavbarComponent, HomeComponent, HomeShowcaseImgComponent, AboutComponent],
   imports: [SharedModule, RouterModule.forChild([])],
   exports: [BsNavbarComponent, HomeShowcaseImgComponent],
 })

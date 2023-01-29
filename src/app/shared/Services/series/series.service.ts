@@ -17,11 +17,7 @@ export class SeriesService {
     return this.db
       .list<Series[] | any>('/series')
       .snapshotChanges()
-      .pipe(
-        map((changes) =>
-          changes.map((c) => ({ key: c.payload.key, ...c.payload.val() }))
-        )
-      );
+      .pipe(map((changes) => changes.map((c) => ({ key: c.payload.key, ...c.payload.val() }))));
   }
 
   get(seriesId: string | number) {

@@ -9,11 +9,7 @@ import { UserService } from 'shared/Services/user/user.service';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  constructor(
-    private auth: AuthService,
-    public router: Router,
-    private userService: UserService
-  ) {
+  constructor(private auth: AuthService, public router: Router, private userService: UserService) {
     auth.user$.subscribe({
       next: (user) => {
         if (user) {

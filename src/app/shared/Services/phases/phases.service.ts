@@ -12,10 +12,6 @@ export class PhasesService {
     return this.db
       .list<any>('/phases')
       .snapshotChanges()
-      .pipe(
-        map((changes) =>
-          changes.map((c) => ({ key: c.payload.key, ...c.payload.val() }))
-        )
-      );
+      .pipe(map((changes) => changes.map((c) => ({ key: c.payload.key, ...c.payload.val() }))));
   }
 }

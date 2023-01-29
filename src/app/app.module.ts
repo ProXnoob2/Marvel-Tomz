@@ -10,6 +10,7 @@ import { AdminModule } from './admin/admin.module';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
+import { MarvelModule } from './marvel/marvel.module';
 import { MatModule } from './mat.module';
 import { MembershipModule } from './membership/membership.module';
 import { SharedModule } from './shared/shared.module';
@@ -22,6 +23,7 @@ import { SharedModule } from './shared/shared.module';
     AdminModule,
     CoreModule,
     SharedModule,
+    MarvelModule,
     MembershipModule,
     AngularFireModule.initializeApp(environment.firebase),
     BrowserAnimationsModule,

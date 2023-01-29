@@ -17,11 +17,7 @@
           />
         </mat-form-field>
 
-        <div
-          class="alert alert-danger"
-          style="margin-top: -18px"
-          *ngIf="title.touched && title.invalid"
-        >
+        <div class="alert alert-danger" style="margin-top: -18px" *ngIf="title.touched && title.invalid">
           Title is required.
         </div>
       </div>
@@ -40,14 +36,8 @@
             [matDatepicker]="startStreamingDatePicker"
           />
           <mat-hint>MM/DD/YYYY</mat-hint>
-          <mat-datepicker-toggle
-            matIconSuffix
-            [for]="startStreamingDatePicker"
-          ></mat-datepicker-toggle>
-          <mat-datepicker
-            #startStreamingDatePicker
-            touchUi="true"
-          ></mat-datepicker>
+          <mat-datepicker-toggle matIconSuffix [for]="startStreamingDatePicker"></mat-datepicker-toggle>
+          <mat-datepicker #startStreamingDatePicker touchUi="true"></mat-datepicker>
         </mat-form-field>
 
         <div
@@ -73,14 +63,8 @@
             [matDatepicker]="endStreamingDatePicker"
           />
           <mat-hint>MM/DD/YYYY</mat-hint>
-          <mat-datepicker-toggle
-            matIconSuffix
-            [for]="endStreamingDatePicker"
-          ></mat-datepicker-toggle>
-          <mat-datepicker
-            #endStreamingDatePicker
-            touchUi="true"
-          ></mat-datepicker>
+          <mat-datepicker-toggle matIconSuffix [for]="endStreamingDatePicker"></mat-datepicker-toggle>
+          <mat-datepicker #endStreamingDatePicker touchUi="true"></mat-datepicker>
         </mat-form-field>
 
         <div
@@ -120,27 +104,14 @@
       <div class="form-group mb-2">
         <mat-form-field class="w-100">
           <mat-label>Phase</mat-label>
-          <mat-select
-            #phase="ngModel"
-            required
-            [(ngModel)]="series.phase"
-            name="phase"
-            id="phase"
-          >
-            <mat-option
-              *ngFor="let phase of phases$ | async"
-              [value]="phase.number"
-            >
+          <mat-select #phase="ngModel" required [(ngModel)]="series.phase" name="phase" id="phase">
+            <mat-option *ngFor="let phase of phases$ | async" [value]="phase.number">
               {{ phase.number }}
             </mat-option>
           </mat-select>
         </mat-form-field>
 
-        <div
-          class="alert alert-danger"
-          style="margin-top: -18px"
-          *ngIf="phase.touched && phase.invalid"
-        >
+        <div class="alert alert-danger" style="margin-top: -18px" *ngIf="phase.touched && phase.invalid">
           Phase is required.
         </div>
       </div>
@@ -188,14 +159,8 @@
           />
         </mat-form-field>
 
-        <div
-          class="alert alert-danger"
-          style="margin-top: -18px"
-          *ngIf="posterUrl.touched && posterUrl.invalid"
-        >
-          <div *ngIf="posterUrl.errors?.['required']">
-            Poster URL is required.
-          </div>
+        <div class="alert alert-danger" style="margin-top: -18px" *ngIf="posterUrl.touched && posterUrl.invalid">
+          <div *ngIf="posterUrl.errors?.['required']">Poster URL is required.</div>
           <div *ngIf="posterUrl.errors?.['url']">Please enter a valid URL.</div>
         </div>
       </div>
@@ -216,11 +181,7 @@
           />
         </mat-form-field>
 
-        <div
-          class="alert alert-danger"
-          style="margin-top: -18px"
-          *ngIf="ageRating.touched && ageRating.invalid"
-        >
+        <div class="alert alert-danger" style="margin-top: -18px" *ngIf="ageRating.touched && ageRating.invalid">
           Age Rating is required.
         </div>
       </div>
@@ -241,11 +202,7 @@
           />
         </mat-form-field>
 
-        <div
-          class="alert alert-danger"
-          style="margin-top: -18px"
-          *ngIf="season.touched && season.invalid"
-        >
+        <div class="alert alert-danger" style="margin-top: -18px" *ngIf="season.touched && season.invalid">
           Season is required.
         </div>
       </div>
@@ -253,21 +210,9 @@
       <div class="d-flex justify-content-sm-between">
         <div class="d-flex gap-3">
           <button [disabled]="!f.valid" class="btn btn-primary">Save</button>
-          <button
-            type="button"
-            routerLink="/admin/series"
-            class="btn btn-warning"
-          >
-            Discard
-          </button>
+          <button type="button" routerLink="/admin/series" class="btn btn-warning">Discard</button>
         </div>
-        <button
-          *ngIf="id"
-          style="margin-left: 13px"
-          type="button"
-          (click)="remove()"
-          class="btn btn-danger"
-        >
+        <button *ngIf="id" style="margin-left: 13px" type="button" (click)="remove()" class="btn btn-danger">
           Delete
         </button>
       </div>
@@ -276,32 +221,23 @@
 
   <div class="col-md-6 d-flex justify-content-center mb-3">
     <div
-      [class.bg-ccc]="
-        !series.title && !series.startStreamingDate && !series.posterUrl
-      "
+      [class.bg-ccc]="!series.title && !series.startStreamingDate && !series.posterUrl"
       class="card"
       style="width: 22rem; height: 38rem; transition: 200ms"
     >
-      <h5
-        *ngIf="!series.title && !series.startStreamingDate && !series.posterUrl"
-        class="text-center mt-4"
-      >
+      <h5 *ngIf="!series.title && !series.startStreamingDate && !series.posterUrl" class="text-center mt-4">
         Preview Text
       </h5>
       <div>
-        <img
-          *ngIf="series.posterUrl"
-          [src]="series.posterUrl"
-          class="card-img-top"
-        />
+        <img *ngIf="series.posterUrl" [src]="series.posterUrl" class="card-img-top" />
       </div>
       <div class="card-body">
         <h5 class="card-title">{{ series.title }}</h5>
         <p class="card-text" *ngIf="series.startStreamingDate">
           Original Series Streaming From
-          {{ series.startStreamingDate | date : "longDate" }}
+          {{ series.startStreamingDate | date : 'longDate' }}
           To
-          {{ series.endStreamingDate | date : "longDate" }}
+          {{ series.endStreamingDate | date : 'longDate' }}
         </p>
       </div>
     </div>

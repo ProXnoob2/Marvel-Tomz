@@ -1,7 +1,15 @@
-.showcase-img{
-    height: 100vh;
-    background-image: url(../../../../assets/images/Marvel.png);
-    -webkit-background-size: cover;
-    background-size: cover;
-    background-position: center center;
+.showcase-img-large-screens {
+  height: 80vh;
+  background-image: url(../../../../assets/images/Marvel-Large.png);
+  -webkit-background-size: cover;
+  background-size: cover;
+  background-position: center center;
+}
+
+.showcase-img-small-screens {
+  height: 80vh;
+  background-image: url(../../../../assets/images/Marvel-Small.jpg);
+  -webkit-background-size: cover;
+  background-size: cover;
+  background-position: center center;
 }

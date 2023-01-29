@@ -36,9 +36,7 @@ export class AdminMoviesComponent implements AfterViewInit {
   applyFilter(value: string) {
     this.dataSource.data = this.movies;
     this.dataSource.data = value
-      ? this.dataSource.data.filter((m) =>
-          m.title.toLowerCase().includes(value.toLowerCase())
-        )
+      ? this.dataSource.data.filter((m) => m.title.toLowerCase().includes(value.toLowerCase()))
       : this.movies;
 
     if (this.dataSource.paginator) {

@@ -1,5 +1,8 @@
 <bs-navbar></bs-navbar>
-<home-showcase-img *ngIf="router.url === '/'"></home-showcase-img>
+
+<div style="margin-top: 54px">
+  <home-showcase-img *ngIf="router.url === '/'"></home-showcase-img>
+</div>
 
 <div class="container" style="padding: 20px; margin-top: 60px">
   <router-outlet></router-outlet>
