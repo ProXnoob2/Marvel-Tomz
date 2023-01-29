@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AngularFireDatabase } from '@angular/fire/compat/database';
 import { map, Observable } from 'rxjs';
+import { Series } from 'shared/Models/series';
 
 @Injectable({
   providedIn: 'root',
@@ -8,13 +9,13 @@ import { map, Observable } from 'rxjs';
 export class SeriesService {
   constructor(private db: AngularFireDatabase) {}
 
-  create(series: any) {
-    return this.db.list('/serieses').push(series);
+  create(series: Series) {
+    return this.db.list('/series').push(series);
   }
 
-  getAll(): Observable<any> {
+  getAll(): Observable<Series[] | any> {
     return this.db
-      .list<any>('/serieses')
+      .list<Series[] | any>('/series')
       .snapshotChanges()
       .pipe(
         map((changes) =>
@@ -24,14 +25,14 @@ export class SeriesService {
   }
 
   get(seriesId: string | number) {
-    return this.db.object('/serieses/' + seriesId).valueChanges();
+    return this.db.object('/series/' + seriesId).valueChanges();
   }
 
-  update(seriesId: string | number, series: any) {
-    return this.db.object('/serieses/' + seriesId).update(series);
+  update(seriesId: string | number, series: Series) {
+    return this.db.object('/series/' + seriesId).update(series);
   }
 
   remove(seriesId: string | number) {
-    return this.db.object('/serieses/' + seriesId).remove();
+    return this.db.object('/series/' + seriesId).remove();
   }
 }

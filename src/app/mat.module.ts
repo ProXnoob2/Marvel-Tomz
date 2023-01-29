@@ -10,12 +10,15 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatSelectModule } from '@angular/material/select';
+import { MatSortModule } from '@angular/material/sort';
+import { MatButtonModule } from '@angular/material/button';
 
 @NgModule({
   exports: [
     MatMenuModule,
     MatIconModule,
     MatDividerModule,
+    MatButtonModule,
     MatDatepickerModule,
     MatFormFieldModule,
     MatInputModule,
@@ -25,6 +28,8 @@ import { MatSelectModule } from '@angular/material/select';
     MatPaginatorModule,
     MatNativeDateModule,
     MatSelectModule,
+    MatSortModule,
+    MatPaginatorModule,
   ],
 })
 export class MatModule {}

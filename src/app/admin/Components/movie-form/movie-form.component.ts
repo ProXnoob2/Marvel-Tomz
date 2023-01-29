@@ -6,11 +6,11 @@ import { MoviesService } from 'shared/Services/movies/movies.service';
 import { PhasesService } from 'shared/Services/phases/phases.service';
 
 @Component({
-  selector: 'app-movie-and-series-form',
-  templateUrl: './movie-and-series-form.component.html',
-  styleUrls: ['./movie-and-series-form.component.scss'],
+  selector: 'app-movie-form',
+  templateUrl: './movie-form.component.html',
+  styleUrls: ['./movie-form.component.scss'],
 })
-export class MovieAndSeriesFormComponent {
+export class MovieFormComponent {
   movie: Movie | any = {};
   id!: any;
   phases$!: any;

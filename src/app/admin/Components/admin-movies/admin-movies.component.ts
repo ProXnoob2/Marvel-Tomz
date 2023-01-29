@@ -11,7 +11,7 @@ import { MoviesService } from 'shared/Services/movies/movies.service';
   templateUrl: './admin-movies.component.html',
   styleUrls: ['./admin-movies.component.scss'],
 })
-export class AdminMoviesComponent {
+export class AdminMoviesComponent implements AfterViewInit {
   movies!: Movie[] | any;
   subscription!: Subscription;
 
@@ -24,7 +24,7 @@ export class AdminMoviesComponent {
   constructor(private moviesService: MoviesService) {
     this.subscription = this.moviesService.getAll().subscribe((movies) => {
       this.movies = movies;
-      this.dataSource.data = this.movies;
+      this.dataSource.data = movies;
     });
   }
 
@@ -36,8 +36,8 @@ export class AdminMoviesComponent {
   applyFilter(value: string) {
     this.dataSource.data = this.movies;
     this.dataSource.data = value
-      ? this.dataSource.data.filter((p) =>
-          p.title.toLowerCase().includes(value.toLowerCase())
+      ? this.dataSource.data.filter((m) =>
+          m.title.toLowerCase().includes(value.toLowerCase())
         )
       : this.movies;
 

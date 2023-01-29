@@ -10,8 +10,6 @@ export class MoviesService {
   constructor(private db: AngularFireDatabase) {}
 
   create(movie: Movie) {
-    console.log(movie);
-
     return this.db.list('/movies').push(movie);
   }
 

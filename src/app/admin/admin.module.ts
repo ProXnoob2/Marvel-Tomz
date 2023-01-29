@@ -5,26 +5,28 @@ import { SharedModule } from 'shared/shared.module';
 
 import { AdminMoviesComponent } from './Components/admin-movies/admin-movies.component';
 import { AdminSeriesComponent } from './Components/admin-series/admin-series.component';
-import { MovieAndSeriesFormComponent } from './Components/movie-and-series-form/movie-and-series-form.component';
+import { MovieFormComponent } from './Components/movie-form/movie-form.component';
+import { SeriesFormComponent } from './Components/series-form/series-form.component';
 import { AdminAuthGuard } from './Services/admin-auth-guard/admin-auth-guard.service';
 
 @NgModule({
   declarations: [
     AdminMoviesComponent,
     AdminSeriesComponent,
-    MovieAndSeriesFormComponent,
+    MovieFormComponent,
+    SeriesFormComponent,
   ],
   imports: [
     SharedModule,
     RouterModule.forChild([
       {
         path: 'admin/movies/new',
-        component: MovieAndSeriesFormComponent,
+        component: MovieFormComponent,
         canActivate: [AuthGuard, AdminAuthGuard],
       },
       {
         path: 'admin/movies/:id',
-        component: MovieAndSeriesFormComponent,
+        component: MovieFormComponent,
         canActivate: [AuthGuard, AdminAuthGuard],
       },
       {
@@ -34,12 +36,12 @@ import { AdminAuthGuard } from './Services/admin-auth-guard/admin-auth-guard.ser
       },
       {
         path: 'admin/series/new',
-        component: MovieAndSeriesFormComponent,
+        component: SeriesFormComponent,
         canActivate: [AuthGuard, AdminAuthGuard],
       },
       {
         path: 'admin/series/:id',
-        component: MovieAndSeriesFormComponent,
+        component: SeriesFormComponent,
         canActivate: [AuthGuard, AdminAuthGuard],
       },
       {

@@ -98,7 +98,7 @@
             id="duration"
             type="text"
           />
-          <mat-hint>HHh/MMm</mat-hint>
+          <mat-hint>HHh MMm</mat-hint>
         </mat-form-field>
 
         <div
@@ -169,6 +169,7 @@
           <mat-label>Part</mat-label>
 
           <input
+            required
             [(ngModel)]="movie.part"
             name="part"
             #part="ngModel"
