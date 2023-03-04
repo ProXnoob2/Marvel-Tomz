@@ -1,0 +1,8 @@
+<mat-card class="mb-3" style="width: 20rem">
+  <img mat-card-image [src]="movie.posterUrl" />
+  <mat-card-header class="mb-2">
+    <mat-card-title>{{ movie.title }}</mat-card-title>
+    <mat-card-subtitle>{{ movie.releaseDate | date : 'longDate' }}</mat-card-subtitle>
+    <mat-card-subtitle class="mt-1 mb-1">{{ movie.ageRating }} ● {{ movie.duration }}</mat-card-subtitle>
+  </mat-card-header>
+</mat-card>

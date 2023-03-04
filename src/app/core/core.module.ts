@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { MarvelModule } from 'app/marvel/marvel.module';
 import { SharedModule } from 'app/shared/shared.module';
 
 import { AboutComponent } from './Components/about/about.component';
@@ -9,7 +10,7 @@ import { HomeComponent } from './Components/home/home.component';
 
 @NgModule({
   declarations: [BsNavbarComponent, HomeComponent, HomeShowcaseImgComponent, AboutComponent],
-  imports: [SharedModule, RouterModule.forChild([])],
+  imports: [SharedModule, MarvelModule, RouterModule.forChild([])],
   exports: [BsNavbarComponent, HomeShowcaseImgComponent],
 })
 export class CoreModule {}

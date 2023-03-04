@@ -1,0 +1,14 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col">
+      <div class="row">
+        <ng-container *ngFor="let m of movies$ | async; let i = index">
+          <div class="col d-flex justify-content-center">
+            <movie-card class="mb-3" [movie]="m"></movie-card>
+          </div>
+          <div *ngIf="(i + 2) % 3 === 0" class="w-100"></div>
+        </ng-container>
+      </div>
+    </div>
+  </div>
+</div>
